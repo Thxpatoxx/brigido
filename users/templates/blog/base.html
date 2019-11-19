@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/general.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">- YUYITOS -</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarColor02">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">| Inicio <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'post_list' %}">| Proovedores</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'cliente_list' %}">| Clientes</a>
+            </li>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'cliente_list' %}">| Inventario</a>
+            </li>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'cliente_list' %}">| Creditos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'cliente_list' %}">| Ventas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'user_new' %}">| Registrarse</a>
+            </li>
+          </ul>
+        </div>
+        {% if user.is_authenticated %}
+          <div class="text-warning">Hi {{ user.username }}!</div>
+          <a href="{% url 'logout' %}" style="font-size: 23px"> | logout | </a>
+        {% else %}
+          <div class="text-warning">You are not logged in</div>
+          <a href="{% url 'login' %}" style="font-size: 23px"> | login | </a>
+        {% endif %}
+     </nav>
+     
+     <hr>
+     <hr>
+    {% block content %}
+    {% endblock %}
+    <footer>
+        <hr>
+        <hr>
+        footer
+    </footer>
+</body>
+</html>
