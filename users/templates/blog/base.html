@@ -29,14 +29,14 @@
             </li>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'cliente_list' %}">| Inventario</a>
+              <a class="nav-link" href="{% url 'produc_list' %}">| Inventario</a>
             </li>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'cliente_list' %}">| Creditos</a>
+              <a class="nav-link" href="{% url 'credito_list' %}">| Creditos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'cliente_list' %}">| Ventas</a>
+              <a class="nav-link" href="{% url 'venta_list' %}">| Ventas</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'user_new' %}">| Registrarse</a>
@@ -51,15 +51,8 @@
           <a href="{% url 'login' %}" style="font-size: 23px"> | login | </a>
         {% endif %}
      </nav>
-     
-     <hr>
-     <hr>
+     <br>
     {% block content %}
     {% endblock %}
-    <footer>
-        <hr>
-        <hr>
-        footer
-    </footer>
 </body>
 </html>

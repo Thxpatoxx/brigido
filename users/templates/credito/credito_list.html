@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<center>
+    <h1>Ventas Pendientes</h1>
+    <a href="{% url 'credito_new' %}"><h1>[[NUEVO CREDITO]]</h1></a>
+    {% for post in posts %}
+        <div class="card text-white bg-primary mb-3" style="max-width: 90%;">
+            <a href="{% url 'credito_detail' pk=post.pk %}" style="text-decoration: none;">
+                <div class="card text-white bg-dark mb-3" style="max-width: 98%;">
+                    <div class="card-header">Nombre Deudor: {{post.deudor.nombre}} {{post.deudor.apellido}}</div>
+                    <div class="card-body">
+                    <h4 class="card-title">RUT Deudor: {{post.deudor.rut}}</h4>
+                    <p class="card-text">Estado Deuda: {{post.estado}}</p>
+                    <p class="card-text">Monto Deuda: ${{post.monto_pago}}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+</center>
+{% endblock %}

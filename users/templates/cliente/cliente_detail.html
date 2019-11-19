@@ -2,14 +2,12 @@
 
 {% block content %}
     <div class="jumbotron" style="text-align: center; width:70%;margin-left: 15%;">
-        <h1>nombre: {{post.nombre}}</h1>
+        <h1>Nombre: {{post.nombre}} {{post.apellido}}</h1>
         <hr style="width: 80%">
-        <h2>Heading 2</h2>
-        <h3>Heading 3</h3>
-        <h4>Heading 4</h4>
-        <h5>Heading 5</h5>
-        <h6>Heading 6</h6>
-        <p class="lead">descripcion: {{post.rut}}</p>
+        <h3>RUT: {{post.rut}}</h3>
+        <h3>Direccion: {{post.direccion}}</h3>
+        <h3>Telefono: {{post.telefono}}</h3>
+        <h3>Correo Electronico: {{post.correo_electronico}}</h3>
         <a class="btn btn-default" href="{% url 'cliente_edit' pk=post.pk %}"><button class="btn btn-warning">EDITAR</button></a>
     </div>
 {% endblock %}

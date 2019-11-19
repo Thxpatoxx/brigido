@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="jumbotron" style="text-align: center; width:70%;margin-left: 15%;">
+        <h1>monto a pagar: ${{post.monto_pago}}</h1>
+        <hr style="width: 80%">
+        <h3>nombre deudor: {{post.deudor.nombre}}</h3>
+        <h3>rut deudor: {{post.deudor.rut}}</h3>
+        <h3>fecha: {{post.fecha}}</h3>
+        <h3>detalle venta: {{post.detalle_venta}}</h3>
+        <a class="btn btn-default" href="{% url 'credito_edit' pk=post.pk %}"><button class="btn btn-warning">EDITAR</button></a>
+    </div>
+{% endblock %}

@@ -20,4 +20,16 @@ urlpatterns = [
     path('Producto/<int:pk>/', views.produc_detail, name='produc_detail'),
     path('Producto/new', views.produc_new, name='produc_new'),
     path('Producto/<int:pk>/edit/', views.produc_edit, name='produc_edit'),
+    path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
+    #creditos
+    path('Lista_creditos', views.credito_list, name='credito_list'),
+    path('credito/<int:pk>/', views.credito_detail, name='credito_detail'),
+    path('credito/new', views.credito_new, name='credito_new'),
+    path('credito/<int:pk>/edit/', views.credito_edit, name='credito_edit'),
+    path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
+    #ventas
+    path('Lista_ventas', views.venta_list, name='venta_list'),
+    path('venta/<int:pk>/', views.venta_detail, name='venta_detail'),
+    path('venta/new', views.venta_new, name='venta_new'),
+    path('venta/<int:pk>/edit/', views.venta_edit, name='venta_edit'),
 ]

@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<center>
+    <h1>Ventas</h1>
+    <a href="{% url 'venta_new' %}"><h1>[[NUEVO CREDITO]]</h1></a>
+    {% for post in posts %}
+        <div class="card text-white bg-primary mb-3" style="max-width: 90%;">
+            <a href="{% url 'venta_detail' pk=post.pk %}" style="text-decoration: none;">
+                <div class="card text-white bg-dark mb-3" style="max-width: 98%;">
+                    <div class="card-header">Nº Boleta: 00{{post.pk}}</div>
+                    <div class="card-body">
+                    <h4 class="card-title">Monto a Pagar: ${{post.monto_pago}}</h4>
+                    <p class="card-text">fecha: {{post.fecha}}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+</center>
+{% endblock %}

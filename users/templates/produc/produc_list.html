@@ -8,10 +8,11 @@
         <div class="card text-white bg-primary mb-3" style="max-width: 90%;">
             <a href="{% url 'produc_detail' pk=post.pk %}" style="text-decoration: none;">
                 <div class="card text-white bg-dark mb-3" style="max-width: 98%;">
-                    <div class="card-header">{{post.nombre}}</div>
+                    <div class="card-header">{{post.descripcion}}</div>
                     <div class="card-body">
-                    <h4 class="card-title">Dark card title</h4>
-                    <p class="card-text">{{post.rut}}</p>
+                    <h4 class="card-title">Precio: ${{post.precio}}</h4>
+                    <p class="card-text">Existencia actual: {{post.existencia_actual}}</p>
+                    <p class="card-text">Nombre Proveedor: {{post.proveedor.nombre}}</p>
                     </div>
                 </div>
             </a>

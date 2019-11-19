@@ -2,14 +2,13 @@
 
 {% block content %}
     <div class="jumbotron" style="text-align: center; width:70%;margin-left: 15%;">
-        <h1>nombre: {{post.nombre}}</h1>
+        <h1>RUT Proveedor: {{post.rut}}</h1>
         <hr style="width: 80%">
-        <h2>Heading 2</h2>
-        <h3>Heading 3</h3>
-        <h4>Heading 4</h4>
-        <h5>Heading 5</h5>
-        <h6>Heading 6</h6>
-        <p class="lead">descripcion: {{post.desc}}</p>
+        <h3>Nombre Proveedor: {{post.nombre}}</h3>
+        <h6>Persona De Contacto: {{post.persona_contacto}}</h6>
+        <p class="lead">Telefono: {{post.telefono}}</p>
+        <p class="lead">Direccion: {{post.direccion}}</p>
+        <p class="lead">Rubro: {{post.rubro}}</p>
         <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><button class="btn btn-warning">EDITAR</button></a>
     </div>
 {% endblock %}

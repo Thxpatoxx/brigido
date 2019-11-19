@@ -74,7 +74,7 @@ def cliente_edit(request, pk):
         form = ClienteForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 #---------------------------------------------------------------------------
-#Clientes-----------------------------------------------------------
+#Productos-----------------------------------------------------------
 def produc_list(request):
     posts = Producto.objects.all()
     return render(request, 'produc/produc_list.html', {'posts': posts})
@@ -98,7 +98,65 @@ def produc_edit(request, pk):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
-            return redirect('post_detail', pk=post.pk)
+            return redirect('produc_detail', pk=post.pk)
     else:
         form = ProductoForm(instance=post)
-    return render(request, 'blog/post_edit.html', {'form': form})
+    return render(request, 'produc/produc_edit.html', {'form': form})
+#---------------------------------------------------------------------------
+#Creditos-----------------------------------------------------------
+def credito_list(request):
+    posts = Credito.objects.all()
+    return render(request, 'credito/credito_list.html', {'posts': posts})
+def credito_detail(request, pk):
+    post = get_object_or_404(Credito, pk=pk)
+    return render(request, 'credito/credito_detail.html', {'post': post})
+def credito_new(request):
+    if request.method == "POST":
+        form = CreditoForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('credito_detail', pk=post.pk)
+    else:
+        form = CreditoForm()
+    return render(request, 'credito/credito_edit.html', {'form': form})
+def credito_edit(request, pk):
+    post = get_object_or_404(Credito, pk=pk)
+    if request.method == "POST":
+        form = CreditoForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('credito_detail', pk=post.pk)
+    else:
+        form = CreditoForm(instance=post)
+    return render(request, 'credito/credito_edit.html', {'form': form})
+#---------------------------------------------------------------------------
+#Ventas-----------------------------------------------------------
+def venta_list(request):
+    posts = Venta.objects.all()
+    return render(request, 'venta/venta_list.html', {'posts': posts})
+def venta_detail(request, pk):
+    post = get_object_or_404(Venta, pk=pk)
+    return render(request, 'venta/venta_detail.html', {'post': post})
+def venta_new(request):
+    if request.method == "POST":
+        form = VentaForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('venta_detail', pk=post.pk)
+    else:
+        form = VentaForm()
+    return render(request, 'venta/venta_edit.html', {'form': form})
+def venta_edit(request, pk):
+    post = get_object_or_404(Venta, pk=pk)
+    if request.method == "POST":
+        form = VentaForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('venta_detail', pk=post.pk)
+    else:
+        form = VentaForm(instance=post)
+    return render(request, 'venta/venta_edit.html', {'form': form})

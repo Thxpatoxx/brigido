@@ -1,1 +1,27 @@
-Django~=2.2.4
+def venta_list(request):
+    posts = Venta.objects.all()
+    return render(request, 'venta/venta_list.html', {'posts': posts})
+def venta_detail(request, pk):
+    post = get_object_or_404(Venta, pk=pk)
+    return render(request, 'venta/venta_detail.html', {'post': post})
+def venta_new(request):
+    if request.method == "POST":
+        form = VentaForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('venta_detail', pk=post.pk)
+    else:
+        form = VentaForm()
+    return render(request, 'venta/venta_edit.html', {'form': form})
+def venta_edit(request, pk):
+    post = get_object_or_404(Venta, pk=pk)
+    if request.method == "POST":
+        form = VentaForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('venta_detail', pk=post.pk)
+    else:
+        form = VentaForm(instance=post)
+    return render(request, 'venta/venta_edit.html', {'form': form})

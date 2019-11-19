@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="jumbotron" style="text-align: center; width:70%;margin-left: 15%;">
+        <h1>RUT Cliente: {{post.cliente.rut}}</h1>
+        <hr style="width: 80%">
+        <h3>id: {{post.pk}}</h3>
+        <h3>Nombre cliente: {{post.cliente.nombre}} {{post.cliente.apellido}}</h3>
+        <h3>fecha: {{post.fecha}}</h3>
+        <h3>monto pago: ${{post.monto_pago}}</h3>
+        <h3>detalle venta: {{post.detalle_venta}}</h3>
+        <a class="btn btn-default" href="{% url 'venta_edit' pk=post.pk %}"><button class="btn btn-warning">EDITAR</button></a>
+    </div>
+{% endblock %}
